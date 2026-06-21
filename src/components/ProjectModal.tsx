@@ -31,6 +31,14 @@ export default function ProjectModal({
     };
   }, [project, onClose]);
 
+  // A project with media gets a wide, two-column modal (media | details).
+  const hasMedia = !!project?.media?.length;
+  // A single video is centered in the left pane; images/multiple stack top-down.
+  const singleVideo =
+    hasMedia &&
+    project!.media!.length === 1 &&
+    VIDEO_RE.test(project!.media![0]);
+
   return (
     <AnimatePresence>
       {project && (
@@ -54,13 +62,15 @@ export default function ProjectModal({
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: 30, opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="relative max-h-[90svh] w-full max-w-2xl overflow-y-auto rounded-t-3xl border border-[var(--color-ink-line)] bg-[var(--color-ink-soft)] sm:rounded-3xl"
+            className={`relative max-h-[90svh] w-full overflow-y-auto rounded-t-3xl border border-[var(--color-ink-line)] bg-[var(--color-ink-soft)] sm:rounded-3xl ${
+              hasMedia ? "max-w-5xl" : "max-w-2xl"
+            }`}
           >
             {/* header */}
-            <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-[var(--color-ink-line)] bg-[var(--color-ink-soft)]/95 px-7 py-6 backdrop-blur">
+            <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-[var(--color-ink-line)] bg-[var(--color-ink-soft)]/95 px-7 py-5 backdrop-blur">
               <div>
                 <span
-                  className="mb-2 inline-flex items-center rounded-full px-3 py-1 text-xs font-medium"
+                  className="mb-1.5 inline-flex items-center rounded-full px-3 py-1 text-xs font-medium"
                   style={{
                     backgroundColor: `rgb(${DOMAIN_META[project.domain].rgb} / 0.12)`,
                     color: `rgb(${DOMAIN_META[project.domain].rgb})`,
@@ -68,7 +78,7 @@ export default function ProjectModal({
                 >
                   {project.domain}
                 </span>
-                <h3 className="font-serif text-2xl text-[var(--color-bone)] md:text-3xl">
+                <h3 className="font-serif text-2xl text-[var(--color-bone)]">
                   {project.title}
                 </h3>
               </div>
@@ -81,16 +91,28 @@ export default function ProjectModal({
               </button>
             </div>
 
-            <div className="space-y-8 px-7 py-7">
-              {/* media gallery, if any — supports images and video clips */}
-              {project.media && project.media.length > 0 && (
-                <div className="grid gap-3">
-                  {project.media.map((m) =>
+            <div
+              className={
+                hasMedia
+                  ? "grid gap-7 px-7 py-6 md:grid-cols-[1.15fr_0.85fr] md:gap-9"
+                  : "space-y-6 px-7 py-6"
+              }
+            >
+              {/* media gallery — supports images and video clips */}
+              {hasMedia && (
+                <div
+                  className={
+                    singleVideo
+                      ? "flex items-center md:self-stretch"
+                      : "space-y-3 md:self-start"
+                  }
+                >
+                  {project.media!.map((m) =>
                     VIDEO_RE.test(m) ? (
                       <video
                         key={m}
                         src={`${import.meta.env.BASE_URL}media/${m}`}
-                        className="w-full rounded-xl border border-[var(--color-ink-line)]"
+                        className="w-full rounded-xl border border-[var(--color-ink-line)] bg-black"
                         controls
                         playsInline
                         preload="metadata"
@@ -108,58 +130,64 @@ export default function ProjectModal({
                 </div>
               )}
 
-              <div>
-                <h4 className="eyebrow mb-3">Objective</h4>
-                <p className="leading-relaxed text-[var(--color-bone-dim)]">
-                  {project.objective}
-                </p>
-              </div>
-
-              <div>
-                <h4 className="eyebrow mb-3">What I built</h4>
-                <ul className="space-y-3">
-                  {project.achievements.map((a, i) => (
-                    <li key={i} className="flex gap-3 text-[var(--color-bone-dim)]">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-gold)]" />
-                      <span className="leading-relaxed">{a}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="eyebrow mb-3">Stack</h4>
-                <div className="flex flex-wrap gap-2">
-                  {project.stack.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full border border-[var(--color-ink-line)] bg-[var(--color-ink)] px-3 py-1 text-xs text-[var(--color-bone-dim)]"
-                    >
-                      {t}
-                    </span>
-                  ))}
+              {/* details column */}
+              <div className="space-y-5">
+                <div>
+                  <h4 className="eyebrow mb-2">Objective</h4>
+                  <p className="text-sm leading-relaxed text-[var(--color-bone-dim)]">
+                    {project.objective}
+                  </p>
                 </div>
-              </div>
 
-              {/* links, only if present */}
-              {project.links &&
-                Object.entries(project.links).some(([, v]) => v) && (
-                  <div className="flex flex-wrap gap-3 border-t border-[var(--color-ink-line)] pt-6">
-                    {Object.entries(project.links).map(([k, v]) =>
-                      v ? (
-                        <a
-                          key={k}
-                          href={v}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-2 rounded-full border border-[var(--color-gold)]/40 px-4 py-2 text-sm text-[var(--color-gold)] transition-colors hover:bg-[var(--color-gold)] hover:text-[var(--color-ink)]"
-                        >
-                          {LINK_LABELS[k] ?? k} ↗
-                        </a>
-                      ) : null,
-                    )}
+                <div>
+                  <h4 className="eyebrow mb-2">What I built</h4>
+                  <ul className="space-y-2">
+                    {project.achievements.map((a, i) => (
+                      <li
+                        key={i}
+                        className="flex gap-3 text-sm text-[var(--color-bone-dim)]"
+                      >
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-gold)]" />
+                        <span className="leading-relaxed">{a}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="eyebrow mb-2">Stack</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.stack.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full border border-[var(--color-ink-line)] bg-[var(--color-ink)] px-3 py-1 text-xs text-[var(--color-bone-dim)]"
+                      >
+                        {t}
+                      </span>
+                    ))}
                   </div>
-                )}
+                </div>
+
+                {/* links, only if present */}
+                {project.links &&
+                  Object.entries(project.links).some(([, v]) => v) && (
+                    <div className="flex flex-wrap gap-3 border-t border-[var(--color-ink-line)] pt-5">
+                      {Object.entries(project.links).map(([k, v]) =>
+                        v ? (
+                          <a
+                            key={k}
+                            href={v}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-2 rounded-full border border-[var(--color-gold)]/40 px-4 py-2 text-sm text-[var(--color-gold)] transition-colors hover:bg-[var(--color-gold)] hover:text-[var(--color-ink)]"
+                          >
+                            {LINK_LABELS[k] ?? k} ↗
+                          </a>
+                        ) : null,
+                      )}
+                    </div>
+                  )}
+              </div>
             </div>
           </motion.div>
         </motion.div>
