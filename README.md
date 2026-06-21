@@ -93,48 +93,37 @@ $env:VITE_BASE="/your-repo-name/"; npm run build; npm run deploy
 
 ## 🔄 Updating the live site (after adding a project, etc.)
 
-Your repo is **`portfolio-anasshaikh`**, so the site is served from
-`/portfolio-anasshaikh/`. Two ways to push updates live:
-
-### A) Manual deploy — recommended for now (no GitHub Actions)
-
-This is the route to use while GitHub Actions is left off. One-time setup:
-in the repo go to **Settings → Pages → Build and deployment → Source →
-Deploy from a branch**, and choose the **`gh-pages`** branch (it's created the
-first time you run the deploy command below).
-
-Then, every time you change content (e.g. add a project JSON, edit experience):
+Your repo is **`portfolio-anasshaikh`** and **automatic deploy is ON** (GitHub
+Actions). So updating the live site is just a normal `git push`:
 
 ```powershell
-# 1. save your content change (e.g. add content/projects/new-thing.json)
+# 1. make your content change, e.g. add content/projects/new-thing.json
 
-# 2. commit + push the SOURCE to GitHub (keeps the repo up to date)
+# 2. commit and push — that's it
 git add .
 git commit -m "Add new project: New Thing"
 git push
+```
 
-# 3. build with the right base path and publish to the gh-pages branch
+On every push to `main`, the
+[workflow](.github/workflows/deploy.yml) builds the site and deploys it to
+GitHub Pages automatically (with the correct base path). It goes live within a
+minute or two. You can watch progress in the repo's **Actions** tab.
+
+> No local build needed — GitHub builds it for you. You only run `npm run build`
+> locally if you want to **preview** before pushing.
+
+### Manual deploy (fallback)
+
+If you ever want to publish without Actions, you can push the built site to a
+`gh-pages` branch directly:
+
+```powershell
 $env:VITE_BASE="/portfolio-anasshaikh/"; npm run build; npm run deploy
 ```
 
-Step 3 builds the site and pushes the compiled `/dist` to the `gh-pages`
-branch; GitHub Pages serves it within a minute. **Step 2 stores your source;
-step 3 publishes the built site** — do both so the repo and the live site stay
-in sync.
-
-> Tip: you can re-run just step 3 any time to re-publish without changing code.
-
-### B) Automatic deploy — if you later enable GitHub Actions
-
-The included [workflow](.github/workflows/deploy.yml) is currently **manual-only**
-so it never runs on its own. To switch to fully automatic deploys:
-
-1. **Settings → Pages → Source → GitHub Actions**.
-2. In `.github/workflows/deploy.yml`, **uncomment the `push:` trigger** (two
-   lines near the top), then commit & push.
-
-After that, a plain `git push` to `main` builds and deploys for you — you can
-skip the manual step 3 above. (GitHub Actions is free for public repos.)
+(You'd then set **Settings → Pages → Source → Deploy from a branch → `gh-pages`**.
+Not needed while Actions deploy is on.)
 
 ---
 

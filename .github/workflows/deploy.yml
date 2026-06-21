@@ -1,15 +1,10 @@
 name: Deploy to GitHub Pages
 
-# Builds the Vite site and publishes it to GitHub Pages.
-#
-# Currently MANUAL ONLY (workflow_dispatch) so it never auto-runs while Pages
-# is configured for manual/branch deploys. To enable automatic deploys on push:
-#   1. Repo Settings → Pages → Source → "GitHub Actions".
-#   2. Uncomment the `push:` trigger below.
-# Then every push to main builds and deploys automatically.
+# Builds the Vite site and publishes it to GitHub Pages on every push to main.
+# Pages source is set to "GitHub Actions" so this workflow owns deployment.
 on:
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
