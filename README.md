@@ -126,10 +126,15 @@ in sync.
 
 ### B) Automatic deploy — if you later enable GitHub Actions
 
-If you switch **Settings → Pages → Source** to **GitHub Actions**, the included
-[workflow](.github/workflows/deploy.yml) takes over: then a plain
-`git push` to `main` is all you need — it builds and deploys for you, and you
-can skip step 3 entirely.
+The included [workflow](.github/workflows/deploy.yml) is currently **manual-only**
+so it never runs on its own. To switch to fully automatic deploys:
+
+1. **Settings → Pages → Source → GitHub Actions**.
+2. In `.github/workflows/deploy.yml`, **uncomment the `push:` trigger** (two
+   lines near the top), then commit & push.
+
+After that, a plain `git push` to `main` builds and deploys for you — you can
+skip the manual step 3 above. (GitHub Actions is free for public repos.)
 
 ---
 
