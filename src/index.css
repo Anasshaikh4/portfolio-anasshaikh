@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+/*
+  ============================================================
+  DESIGN SYSTEM — "Warm Editorial Dark"
+  A restrained, expensive palette built around a warm gold
+  accent pulled from the hero portrait's sunset.
+  ============================================================
+*/
+@theme {
+  /* Surfaces — warm near-blacks, not pure grey */
+  --color-ink: #0b0a09;          /* page background */
+  --color-ink-soft: #110f0d;     /* raised panels */
+  --color-ink-line: #1f1c18;     /* hairline borders */
+
+  /* Text — warm off-whites */
+  --color-bone: #ede7dd;         /* primary text */
+  --color-bone-dim: #a39d92;     /* secondary text */
+  --color-bone-faint: #6b665d;   /* tertiary / captions */
+
+  /* Accent — refined gold/amber */
+  --color-gold: #c9a14a;
+  --color-gold-soft: #e2c277;
+  --color-gold-deep: #8a6a26;
+
+  /* Type */
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* subtle warm vignette + film grain handled by .grain overlay */
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  /* Custom scrollbar — slim, on-brand */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-ink); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-ink-line);
+    border-radius: 999px;
+    border: 3px solid var(--color-ink);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #2b2722; }
+}
+
+@layer utilities {
+  /* Editorial uppercase eyebrow label */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  /* Gold gradient text for accents in headlines */
+  .text-gradient-gold {
+    background: linear-gradient(
+      100deg,
+      var(--color-gold-soft) 0%,
+      var(--color-gold) 45%,
+      var(--color-gold-deep) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Thin hairline divider */
+  .hairline {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-ink-line) 20%,
+      var(--color-ink-line) 80%,
+      transparent
+    );
+  }
+
+  /* Film-grain + vignette overlay, fixed over the whole page */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .vignette-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99;
+    background: radial-gradient(
+      120% 120% at 50% 0%,
+      transparent 55%,
+      rgba(0, 0, 0, 0.45) 100%
+    );
+  }
+
+  /* Duotone treatment for the portrait */
+  .portrait-duotone {
+    filter: grayscale(1) contrast(1.05) brightness(0.92);
+    mix-blend-mode: luminosity;
+  }
+
+  /* Respect reduced-motion preference globally */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "label": "MLOps & Deployment",
+  "items": [
+    "Docker",
+    "MLflow",
+    "GitHub Actions (CI/CD)",
+    "NVIDIA Jetson",
+    "CUDA",
+    "Google Cloud",
+    "DigitalOcean"
+  ],
+  "order": 3
+}

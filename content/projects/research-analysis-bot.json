@@ -1,0 +1,28 @@
+{
+  "title": "Research Analysis Bot",
+  "slug": "research-analysis-bot",
+  "domain": "NLP",
+  "date": "2024-09",
+  "featured": false,
+  "oneLiner": "RAG-powered bot that performs gap analysis across multiple research papers.",
+  "objective": "Process multiple research papers and questions to perform automated GAP analysis.",
+  "stack": [
+    "Python",
+    "OpenAI API",
+    "RAG",
+    "Pydantic",
+    "REST API"
+  ],
+  "achievements": [
+    "Applied pre/post-processing to optimize data for LLM inference.",
+    "Used RAG to improve accuracy, integrity, and grounding of answers.",
+    "Scaled to efficient batch processing for timely throughput.",
+    "Optimized similarity-search retrieval, lifting RAG accuracy to ~70-80%."
+  ],
+  "links": {
+    "github": "",
+    "demo": "",
+    "video": ""
+  },
+  "media": []
+}

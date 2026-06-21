@@ -1,0 +1,34 @@
+{
+  "title": "ML Model Management System",
+  "slug": "ml-model-management",
+  "domain": "MLOps",
+  "date": "2025-05",
+  "featured": true,
+  "oneLiner": "A customized, authenticated MLflow server with browser-direct artifact uploads and automated deployment.",
+  "objective": "Customize and run an MLflow server from source with authentication and purpose-built APIs for browser-based artifact uploads and model registration - an end-to-end ML lifecycle system for training, validation, versioning, and deployment across AI projects.",
+  "stack": [
+    "MLflow",
+    "Python",
+    "Flask",
+    "Docker",
+    "GitHub Actions",
+    "Google Cloud Storage",
+    "MinIO",
+    "JWT",
+    "SQLite"
+  ],
+  "achievements": [
+    "Built an end-to-end ML lifecycle system on MLflow enabling reproducible training, validation, versioning and deployment.",
+    "Created custom triggers for automatic deployment of validated models to production via GitHub Actions + cloud storage.",
+    "Containerized the MLflow service in Docker for portable, reproducible environments.",
+    "Implemented Flask blueprint endpoints for direct-to-storage uploads (presigned PUT, S3 multipart, GCS resumable) to bypass server bottlenecks.",
+    "Integrated endpoints with MLflow auth for RBAC and JWT-authenticated upload flows.",
+    "Deployed on Google Cloud with a GCS bucket as the artifact backend."
+  ],
+  "links": {
+    "github": "",
+    "demo": "",
+    "video": ""
+  },
+  "media": []
+}

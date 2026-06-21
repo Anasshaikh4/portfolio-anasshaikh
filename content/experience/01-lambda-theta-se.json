@@ -1,0 +1,14 @@
+{
+  "company": "Lambda Theta",
+  "context": "Elm — KSA (ODC)",
+  "role": "Software Engineer",
+  "period": "Jul 2024 — Present",
+  "start": "2024-07",
+  "bullets": [
+    "Design and deploy AI-driven solutions using CNNs, Transformers, MediaPipe and YOLO for real-time object detection, classification, and scene analysis.",
+    "Build scalable data-extraction tools leveraging Python and LLMs to automate web scraping and content parsing across domains.",
+    "Integrate LLM and custom NLP pipelines for contextual question answering and semantic search over unstructured text.",
+    "Develop modular ML pipelines for preprocessing, inference, and postprocessing — enabling rapid experimentation and benchmarking.",
+    "Engineer proof-of-concept prototypes for AI in safety, automation, and research intelligence, accelerating idea-to-deployment."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "title": "CallCenter AI Deployment",
+  "slug": "callcenter-deployment",
+  "domain": "MLOps",
+  "date": "2025-12",
+  "featured": false,
+  "oneLiner": "Containerized GPU-enabled ASR + embedding stack deployed to production on DigitalOcean.",
+  "objective": "Deploy a call-center AI application on a DigitalOcean droplet by containerizing ASR and embedding models with GPU-enabled dependencies for reliable, scalable production inference.",
+  "stack": [
+    "Python",
+    "Docker",
+    "CUDA",
+    "DigitalOcean",
+    "PyTorch"
+  ],
+  "achievements": [
+    "Built a custom GPU-supported Python Docker image for ASR and embedding models.",
+    "Resolved dependency and runtime compatibility issues for stable GPU inference on DigitalOcean.",
+    "Deployed and validated end-to-end inference in production with reproducible, consistent performance."
+  ],
+  "links": {
+    "github": "",
+    "demo": "",
+    "video": ""
+  },
+  "media": []
+}

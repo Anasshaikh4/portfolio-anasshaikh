@@ -1,0 +1,27 @@
+{
+  "title": "Generic Web Scraper",
+  "slug": "generic-web-scraper",
+  "domain": "NLP",
+  "date": "2024-10",
+  "featured": false,
+  "oneLiner": "URL-in, structured-data-out scraper that cleans HTML for reliable LLM inference.",
+  "objective": "Build a generic web scraper that takes any URL, fetches and preprocesses HTML for LLM inference, and cleans the data for improved accuracy.",
+  "stack": [
+    "Python",
+    "Selenium",
+    "BeautifulSoup",
+    "OpenAI API",
+    "Pydantic"
+  ],
+  "achievements": [
+    "Used Pydantic models for strict, optimized data validation.",
+    "Enabled efficient extraction from web pages using Selenium Stealth.",
+    "Transformed raw pages into meaningful, structured data ready for OpenAI inference."
+  ],
+  "links": {
+    "github": "",
+    "demo": "",
+    "video": ""
+  },
+  "media": []
+}

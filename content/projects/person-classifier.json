@@ -1,0 +1,26 @@
+{
+  "title": "Person Classifier",
+  "slug": "person-classifier",
+  "domain": "Computer Vision",
+  "date": "2024-08",
+  "featured": false,
+  "oneLiner": "Fine-tuned vision classifier deployed inside a live AI system in a public environment.",
+  "objective": "Develop a computer-vision feature using an Ultralytics classifier to detect and classify specific types of persons.",
+  "stack": [
+    "Python",
+    "Ultralytics",
+    "PyTorch",
+    "OpenCV",
+    "FastAPI"
+  ],
+  "achievements": [
+    "Developed a CV classification feature and integrated it into custom AI software running in a public place.",
+    "Fine-tuned the model iteratively based on real performance metrics."
+  ],
+  "links": {
+    "github": "",
+    "demo": "",
+    "video": ""
+  },
+  "media": []
+}

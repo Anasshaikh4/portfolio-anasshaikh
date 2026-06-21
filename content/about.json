@@ -1,0 +1,22 @@
+{
+  "headline": "I don't just train models — *I ship them*, to production and to the edge.",
+  "paragraphs": [
+    "I'm an AI Software Engineer with 1.5+ years building and shipping real-time AI systems — not notebooks, but systems that run in production and on the edge.",
+    "At Lambda Theta (ODC), I support enterprise AI initiatives for Elm (KSA), including work on Nuha-LLM-based solutions for production NLP and automation. My core is Computer Vision — CNNs, Transformers, YOLO, EfficientViT — but I own the whole lifecycle: data, training, evaluation, inference, and deployment via Docker, MLflow, and GitHub Actions.",
+    "My trajectory mirrors the field's: starting in real-time CV and edge deployment on NVIDIA Jetson, moving into MLOps, and most recently into Agentic AI and multi-agent orchestration. I care about measurable trade-offs — swapping architectures to win precision and recall while spending fewer resources."
+  ],
+  "stats": [
+    {
+      "value": "1.5+",
+      "label": "Years building AI in production"
+    },
+    {
+      "value": "10+",
+      "label": "Shipped projects across 5 domains"
+    },
+    {
+      "value": "Edge → Cloud",
+      "label": "From Jetson devices to GCP & DigitalOcean"
+    }
+  ]
+}

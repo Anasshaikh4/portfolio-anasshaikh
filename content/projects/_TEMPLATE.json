@@ -1,0 +1,22 @@
+{
+  "title": "Project Name Here",
+  "slug": "project-name-here",
+  "domain": "Computer Vision",
+  "date": "2026-01",
+  "featured": false,
+  "oneLiner": "One punchy sentence that sells the project at a glance.",
+  "objective": "What the project set out to do, in 1-3 sentences.",
+  "stack": ["Tech One", "Tech Two", "Tech Three"],
+  "achievements": [
+    "What you actually built or achieved - lead with a verb.",
+    "Another concrete outcome, ideally with a number or trade-off.",
+    "Keep each bullet to one line if you can."
+  ],
+  "links": {
+    "github": "",
+    "demo": "",
+    "video": "",
+    "linkedin": ""
+  },
+  "media": []
+}

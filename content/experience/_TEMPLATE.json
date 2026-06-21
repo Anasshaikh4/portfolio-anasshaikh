@@ -1,0 +1,12 @@
+{
+  "company": "Company Name",
+  "context": "Optional sub-label, e.g. client or 'Remote' (delete if unused)",
+  "role": "Your Job Title",
+  "period": "Mon YYYY — Present",
+  "start": "2026-01",
+  "bullets": [
+    "What you did / owned — lead with a verb.",
+    "Another responsibility or achievement.",
+    "Keep each to one or two lines."
+  ]
+}

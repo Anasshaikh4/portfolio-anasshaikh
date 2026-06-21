@@ -1,0 +1,34 @@
+{
+  "title": "Weapons Detection System",
+  "slug": "weapons-detection",
+  "domain": "Computer Vision",
+  "date": "2025-06",
+  "featured": true,
+  "oneLiner": "Multi-camera, real-time weapon + posture analytics backend with rule-based alerting and evidence capture.",
+  "objective": "Build a multi-camera video-analytics backend that runs batched weapon and posture inference on live streams, evaluates configurable alert rules, records evidence clips, and exposes a streaming API for a frontend dashboard. Also benchmark CNN vs Transformer detectors (YOLOv8-EfficientViT vs RT-DETR) and trackers (SSD-MobileNetV2 vs YOLOv8 with ByteTrack).",
+  "stack": [
+    "PyTorch",
+    "YOLOv8",
+    "EfficientViT",
+    "RT-DETR",
+    "OpenCV",
+    "WebSocket",
+    "SQLite",
+    "Docker Compose"
+  ],
+  "achievements": [
+    "Modified YOLOv8 with a custom EfficientViT backbone - higher precision/recall at lower resource cost than RT-DETR.",
+    "Built a modular pipeline to benchmark model pairs and derive Precision/Recall/F1 across architectures.",
+    "Implemented multi-camera, batch-synchronized inference with per-camera capture threads and bounded frame queues.",
+    "Integrated a dual-model pipeline (weapon detector + pose estimator) with warm-up inference to preload weights.",
+    "Built a rule-driven alert engine using weapon/posture class sets and consecutive-frame thresholds from config.",
+    "Added evidence capture: buffered WebM clip recording and alert persistence in SQLite with structured event payloads.",
+    "Exposed a camera-service API over WebSockets with CORS for a live dashboard."
+  ],
+  "links": {
+    "github": "",
+    "demo": "",
+    "video": ""
+  },
+  "media": []
+}

@@ -1,0 +1,13 @@
+{
+  "label": "Tools & Automation",
+  "items": [
+    "Git / GitHub",
+    "Postman",
+    "MinIO",
+    "Make.com",
+    "n8n",
+    "Notion",
+    "VS Code"
+  ],
+  "order": 5
+}

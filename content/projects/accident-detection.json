@@ -1,0 +1,30 @@
+{
+  "title": "Accident Detection",
+  "slug": "accident-detection",
+  "domain": "Edge AI",
+  "date": "2024-12",
+  "featured": true,
+  "oneLiner": "Dashcam accident-detection PoC running real-time on an NVIDIA Jetson with cloud alerting.",
+  "objective": "Simulate an intelligent dashcam streaming endpoint that detects accidents in real time for timely acknowledgment.",
+  "stack": [
+    "TensorFlow",
+    "MoViNet (CNN)",
+    "Python",
+    "NVIDIA Jetson Orin Nano",
+    "OpenCV",
+    "Google Cloud Storage",
+    "Threading"
+  ],
+  "achievements": [
+    "Built an accident-detection PoC for dashcams using a pretrained MoViNet CNN.",
+    "Deployed the model on an NVIDIA Jetson Orin Nano for real-time, on-device inference.",
+    "Integrated cloud-based alerting to raise flags the moment an accident is detected."
+  ],
+  "links": {
+    "github": "",
+    "demo": "",
+    "video": "",
+    "linkedin": "https://www.linkedin.com/posts/anasxshaikhx4_ai-computervision-edgecomputing-activity-7288844654660231168-a_Pr?utm_source=share&utm_medium=member_desktop&rcm=ACoAADkFg_0BZ1KGTWBU2S3fMfggMcNJ9XQkE84"
+  },
+  "media": []
+}

@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+*.tsbuildinfo
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# local env
+.env
+.env.local
+.env.*.local
+
+# scratch data extracted while building (safe to ignore)
+resume_text.txt
+notion_raw.json
+notion_coll.json
+notion_projects.json

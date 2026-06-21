@@ -1,0 +1,25 @@
+{
+  "title": "Object Detection Pipeline",
+  "slug": "object-detection",
+  "domain": "Computer Vision",
+  "date": "2024-10",
+  "featured": false,
+  "oneLiner": "Custom-trained YOLO detector slotted into a larger AI system for higher overall accuracy.",
+  "objective": "Generate a custom object-detection dataset and train a lightweight CV model (bootstrapped with Meta's Detectron) for integration into a larger system.",
+  "stack": [
+    "Python",
+    "Ultralytics YOLO",
+    "OpenCV"
+  ],
+  "achievements": [
+    "Applied data-augmentation techniques to improve dataset quality.",
+    "Trained an Ultralytics YOLO model on the custom dataset for accurate detection.",
+    "Boosted the efficiency and accuracy of a larger AI system by integrating the optimized detection pipeline."
+  ],
+  "links": {
+    "github": "",
+    "demo": "",
+    "video": ""
+  },
+  "media": []
+}

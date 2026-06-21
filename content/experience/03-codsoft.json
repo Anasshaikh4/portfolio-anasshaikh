@@ -1,0 +1,11 @@
+{
+  "company": "CodSoft",
+  "context": "Remote",
+  "role": "Software Engineering Intern",
+  "period": "Sep 2023 — Oct 2023",
+  "start": "2023-09",
+  "bullets": [
+    "Developed a Java game application featuring random generation, user interaction, attempt limiting, and score tracking.",
+    "Built an ATM simulation with an intuitive UI for CRUD operations and validation for secure, accurate transactions."
+  ]
+}

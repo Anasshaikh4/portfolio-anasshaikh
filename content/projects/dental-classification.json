@@ -1,0 +1,27 @@
+{
+  "title": "Dental Classification System",
+  "slug": "dental-classification",
+  "domain": "Computer Vision",
+  "date": "2026-01",
+  "featured": false,
+  "oneLiner": "Containerized Streamlit app running custom-trained YOLO inference on dental images.",
+  "objective": "Build a web-based dental image classification system with a custom-trained YOLO model and a professional Streamlit interface for real-time inference and annotation.",
+  "stack": [
+    "Python",
+    "Ultralytics YOLO",
+    "Streamlit",
+    "OpenCV"
+  ],
+  "achievements": [
+    "Built an interactive Streamlit app with a clean UI for uploading dental images and running real-time YOLO inference.",
+    "Integrated a custom-trained YOLO model with configurable confidence thresholds and automated bounding-box annotation.",
+    "Deployed a containerized build with headless OpenCV for Streamlit Cloud compatibility and cross-platform reproducibility."
+  ],
+  "links": {
+    "github": "",
+    "demo": "",
+    "video": "",
+    "linkedin": "https://www.linkedin.com/posts/anasxshaikhx4_classification-ml-app-activity-7419314243583266817-F7xe?utm_source=share&utm_medium=member_desktop&rcm=ACoAADkFg_0BZ1KGTWBU2S3fMfggMcNJ9XQkE84"
+  },
+  "media": []
+}

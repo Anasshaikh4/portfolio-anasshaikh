@@ -1,0 +1,30 @@
+{
+  "title": "Multi-Agent SEO Analyzer",
+  "slug": "multi-agent-seo",
+  "domain": "Agentic",
+  "date": "2025-11",
+  "featured": true,
+  "oneLiner": "Six specialized LLM agents that analyze a website in parallel and auto-generate an audit report.",
+  "objective": "Build an AI-powered multi-agent SEO analysis system using the Google Agent Development Kit, with six specialized agents for comprehensive website evaluation and automated report generation.",
+  "stack": [
+    "Google ADK",
+    "Gemini 2.0 Flash",
+    "Python",
+    "asyncio",
+    "FastAPI",
+    "Pydantic"
+  ],
+  "achievements": [
+    "Developed 6 specialized LLM agents - Security, On-Page SEO, Content, Performance, Indexability, and Report Generator.",
+    "Implemented parallel agent execution with asyncio orchestration, cutting total analysis time.",
+    "Created 11 custom SEO tools for live HTTP requests, HTML parsing, and metrics collection.",
+    "Built observability with structured logging, tracing spans, and metrics for monitoring and debugging agents."
+  ],
+  "links": {
+    "github": "",
+    "demo": "",
+    "video": "",
+    "linkedin": "https://www.linkedin.com/posts/anasxshaikhx4_searchengineoptimization-ai-webperformance-activity-7431918437146386432-BjLP?utm_source=share&utm_medium=member_desktop&rcm=ACoAADkFg_0BZ1KGTWBU2S3fMfggMcNJ9XQkE84"
+  },
+  "media": []
+}

@@ -1,0 +1,15 @@
+{
+  "label": "Computer Vision & ML",
+  "items": [
+    "PyTorch",
+    "TensorFlow",
+    "Ultralytics YOLO",
+    "EfficientViT",
+    "RT-DETR",
+    "CNNs",
+    "Transformers",
+    "OpenCV",
+    "MediaPipe"
+  ],
+  "order": 2
+}
