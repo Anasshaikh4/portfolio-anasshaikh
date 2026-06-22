@@ -50,20 +50,29 @@ export default function Hero() {
         transition={{ duration: 1.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className="pointer-events-none absolute inset-x-0 bottom-0 z-0 flex justify-center overflow-hidden"
       >
-        <span
-          className="select-none whitespace-nowrap font-serif font-semibold leading-[0.78] tracking-tight text-transparent"
+        <div
+          className="flex select-none flex-col items-center text-center font-serif font-semibold leading-[0.82] tracking-tight md:flex-row md:items-baseline md:gap-[0.22em] md:leading-[0.78]"
           style={{
-            fontSize: "clamp(4rem, 19vw, 18rem)",
-            WebkitTextStroke: "1px rgba(237,231,221,0.10)",
-            backgroundImage:
-              "linear-gradient(180deg, rgba(201,161,74,0.20), rgba(237,231,221,0.05) 70%, rgba(237,231,221,0) 92%)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
+            fontSize: "clamp(3.75rem, 19vw, 18rem)",
             transform: "translateY(14%)",
           }}
         >
-          ANAS SHEIKH
-        </span>
+          {["ANAS", "SHEIKH"].map((word) => (
+            <span
+              key={word}
+              className="whitespace-nowrap text-transparent"
+              style={{
+                WebkitTextStroke: "1px rgba(237,231,221,0.10)",
+                backgroundImage:
+                  "linear-gradient(180deg, rgba(201,161,74,0.20), rgba(237,231,221,0.05) 70%, rgba(237,231,221,0) 92%)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+              }}
+            >
+              {word}
+            </span>
+          ))}
+        </div>
       </motion.div>
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 md:px-10">
