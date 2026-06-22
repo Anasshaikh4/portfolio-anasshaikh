@@ -47,7 +47,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`relative mx-auto w-full max-w-6xl px-6 py-24 md:px-10 md:py-32 ${className}`}
+      className={`relative mx-auto w-full max-w-6xl px-6 py-16 md:px-10 md:py-32 ${className}`}
     >
       <Reveal>
         <div className="mb-14 flex items-baseline gap-4 md:mb-20">

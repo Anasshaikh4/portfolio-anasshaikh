@@ -44,7 +44,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative mx-auto w-full max-w-6xl px-6 py-28 md:px-10 md:py-40"
+      className="relative mx-auto w-full max-w-6xl px-6 py-20 md:px-10 md:py-40"
     >
       <Reveal>
         <span className="eyebrow">05 · Contact</span>
@@ -87,7 +87,7 @@ export default function Contact() {
       </Reveal>
 
       {/* socials */}
-      <div className="mt-20 grid gap-px overflow-hidden rounded-2xl border border-[var(--color-ink-line)] bg-[var(--color-ink-line)] sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-[var(--color-ink-line)] bg-[var(--color-ink-line)] md:mt-20 lg:grid-cols-4">
         {SOCIALS.map((s, i) => (
           <motion.a
             key={s.label}
@@ -98,7 +98,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08, duration: 0.6 }}
-            className="group flex flex-col gap-5 bg-[var(--color-ink)] px-6 py-7 transition-colors hover:bg-[var(--color-ink-soft)]"
+            className="group flex flex-col gap-4 bg-[var(--color-ink)] px-5 py-5 transition-colors hover:bg-[var(--color-ink-soft)] sm:gap-5 sm:px-6 sm:py-7"
           >
             <span className="flex items-center justify-between">
               <s.Icon className="h-5 w-5 text-[var(--color-bone-dim)] transition-colors group-hover:text-[var(--color-gold)]" />
