@@ -1,5 +1,6 @@
 import { useLenis } from "./hooks/useLenis";
 import Nav from "./components/Nav";
+import FloatingNav from "./components/FloatingNav";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
@@ -18,6 +19,7 @@ export default function App() {
       <div className="vignette-overlay" aria-hidden />
 
       <Nav />
+      <FloatingNav />
       <main>
         <Hero />
         <About />

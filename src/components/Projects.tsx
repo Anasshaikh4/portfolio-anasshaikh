@@ -95,7 +95,6 @@ export default function Projects() {
   const [filter, setFilter] = useState<Filter>("All");
   const [active, setActive] = useState<Project | null>(null);
 
-  // only show filters that actually have projects
   const availableDomains = useMemo(
     () => DOMAIN_ORDER.filter((d) => PROJECTS.some((p) => p.domain === d)),
     [],

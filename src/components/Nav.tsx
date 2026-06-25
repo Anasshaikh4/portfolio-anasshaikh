@@ -46,8 +46,12 @@ export default function Nav() {
           Anas<span className="text-[var(--color-gold)]">.</span>
         </button>
 
-        {/* desktop links */}
-        <ul className="hidden items-center gap-8 md:flex">
+        {/* desktop links — fade out once floating nav takes over */}
+        <motion.ul
+          animate={{ opacity: scrolled ? 0 : 1, pointerEvents: scrolled ? "none" : "auto" }}
+          transition={{ duration: 0.3 }}
+          className="hidden items-center gap-8 md:flex"
+        >
           {LINKS.map((l) => (
             <li key={l.id}>
               <button
@@ -69,7 +73,7 @@ export default function Nav() {
               Résumé
             </a>
           </li>
-        </ul>
+        </motion.ul>
 
         {/* mobile toggle */}
         <button
