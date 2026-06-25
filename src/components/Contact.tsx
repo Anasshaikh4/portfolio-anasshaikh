@@ -65,10 +65,10 @@ export default function Contact() {
       </Reveal>
 
       <Reveal delay={0.15}>
-        <div className="mt-10 flex flex-wrap gap-4">
+        <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
           <a
             href={`mailto:${PROFILE.email}`}
-            className="group inline-flex items-center gap-2 rounded-full bg-[var(--color-gold)] px-7 py-3.5 font-sans text-sm font-medium text-[var(--color-ink)] transition-transform hover:scale-[1.03]"
+            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-gold)] px-7 py-3.5 font-sans text-sm font-medium text-[var(--color-ink)] transition-transform hover:scale-[1.03] sm:w-auto sm:justify-start"
           >
             Say hello
             <span className="transition-transform group-hover:translate-x-1">
@@ -79,7 +79,7 @@ export default function Contact() {
             href={`${import.meta.env.BASE_URL}${PROFILE.resume}`}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-[var(--color-ink-line)] px-7 py-3.5 font-sans text-sm text-[var(--color-bone-dim)] transition-colors hover:border-[var(--color-bone-dim)] hover:text-[var(--color-bone)]"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--color-ink-line)] px-7 py-3.5 font-sans text-sm text-[var(--color-bone-dim)] transition-colors hover:border-[var(--color-bone-dim)] hover:text-[var(--color-bone)] sm:w-auto sm:justify-start"
           >
             Download résumé ↓
           </a>
