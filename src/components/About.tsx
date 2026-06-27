@@ -1,17 +1,47 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useMotionValue, useSpring, useInView, useMotionValueEvent } from "framer-motion";
 import { Reveal } from "./primitives";
 import { PROFILE, ABOUT, ABOUT_PARAGRAPHS, STATS } from "../lib/content";
 
-/** Render text with *segments* wrapped in asterisks shown in the gold gradient. */
+/** Headline renderer: *asterisk* → gold gradient, \n → line break. */
 function renderHeadline(text: string) {
-  return text.split(/(\*[^*]+\*)/g).map((part, i) =>
-    part.startsWith("*") && part.endsWith("*") ? (
-      <span key={i} className="text-gradient-gold">
-        {part.slice(1, -1)}
-      </span>
-    ) : (
-      <span key={i}>{part}</span>
-    ),
+  return text.split(/(\*[^*]+\*|\n)/g).map((part, i) => {
+    if (part.startsWith("*") && part.endsWith("*"))
+      return <span key={i} className="text-gradient-gold">{part.slice(1, -1)}</span>;
+    if (part === "\n")
+      return <br key={i} />;
+    return <span key={i}>{part}</span>;
+  });
+}
+
+/** Spring count-up for numeric values like "1.5+" or "10+". Passes text through unchanged. */
+function CountUp({ value }: { value: string }) {
+  const match = value.match(/^([\d.]+)(\D*)$/);
+  if (!match) return <>{value}</>;
+
+  const [, num, suffix] = match;
+  const target = parseFloat(num);
+  const isDecimal = num.includes(".");
+
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const raw = useMotionValue(0);
+  const spring = useSpring(raw, { damping: 30, stiffness: 55 });
+  const [display, setDisplay] = useState("0");
+
+  useMotionValueEvent(spring, "change", (v) => {
+    setDisplay(isDecimal ? v.toFixed(1) : String(Math.round(v)));
+  });
+
+  useEffect(() => {
+    if (inView) raw.set(target);
+  }, [inView, raw, target]);
+
+  return (
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
   );
 }
 
@@ -54,7 +84,7 @@ export default function About() {
               <Reveal key={s.label} delay={0.1 + i * 0.08}>
                 <div className="border-t border-[var(--color-ink-line)] pt-4">
                   <div className="font-serif text-2xl text-[var(--color-gold)] md:text-3xl">
-                    {s.value}
+                    <CountUp value={s.value} />
                   </div>
                   <div className="mt-1 text-xs leading-snug text-[var(--color-bone-faint)]">
                     {s.label}
