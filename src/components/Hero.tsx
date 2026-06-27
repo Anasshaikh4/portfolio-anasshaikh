@@ -53,7 +53,7 @@ export default function Hero() {
         <div
           className="flex select-none flex-col items-center text-center font-serif font-semibold leading-[0.82] tracking-tight md:flex-row md:items-baseline md:gap-[0.22em] md:leading-[0.78]"
           style={{
-            fontSize: "clamp(3.75rem, 19vw, 18rem)",
+            fontSize: "clamp(3.75rem, 15vw, 15rem)",
             transform: "translateY(14%)",
           }}
         >

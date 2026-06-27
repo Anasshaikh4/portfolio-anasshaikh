@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useInView, useMotionValueEvent } from "framer-motion";
+import { motion, animate } from "framer-motion";
+import type { AnimationPlaybackControls } from "framer-motion";
 import { Reveal } from "./primitives";
 import { PROFILE, ABOUT, ABOUT_PARAGRAPHS, STATS } from "../lib/content";
 
@@ -14,28 +15,50 @@ function renderHeadline(text: string) {
   });
 }
 
-/** Spring count-up for numeric values like "1.5+" or "10+". Passes text through unchanged. */
+/** Count-up for numeric values like "1.5+" or "10+". Non-numeric text passes through unchanged. */
 function CountUp({ value }: { value: string }) {
-  const match = value.match(/^([\d.]+)(\D*)$/);
-  if (!match) return <>{value}</>;
-
-  const [, num, suffix] = match;
-  const target = parseFloat(num);
-  const isDecimal = num.includes(".");
-
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  const raw = useMotionValue(0);
-  const spring = useSpring(raw, { damping: 30, stiffness: 55 });
-  const [display, setDisplay] = useState("0");
 
-  useMotionValueEvent(spring, "change", (v) => {
-    setDisplay(isDecimal ? v.toFixed(1) : String(Math.round(v)));
-  });
+  const match = value.match(/^([\d.]+)(\D*)$/);
+  const isNumeric = !!match;
+  const target = match ? parseFloat(match[1]) : 0;
+  const suffix = match ? match[2] : "";
+  const isDecimal = match ? match[1].includes(".") : false;
+
+  const [display, setDisplay] = useState(isDecimal ? "0.0" : "0");
 
   useEffect(() => {
-    if (inView) raw.set(target);
-  }, [inView, raw, target]);
+    if (!isNumeric) return;
+    const el = ref.current;
+    if (!el) return;
+
+    let controls: AnimationPlaybackControls | undefined;
+    let started = false;
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !started) {
+          started = true;
+          controls = animate(0, target, {
+            duration: 1.4,
+            ease: [0.16, 1, 0.3, 1],
+            onUpdate: (v) =>
+              setDisplay(isDecimal ? v.toFixed(1) : String(Math.round(v))),
+          });
+          obs.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -15% 0px" },
+    );
+    obs.observe(el);
+
+    return () => {
+      obs.disconnect();
+      controls?.stop();
+    };
+  }, [isNumeric, target, isDecimal]);
+
+  if (!isNumeric) return <span ref={ref}>{value}</span>;
 
   return (
     <span ref={ref}>
