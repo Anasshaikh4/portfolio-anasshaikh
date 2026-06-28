@@ -23,6 +23,9 @@ Thumbs.db
 .env.local
 .env.*.local
 
+# optional vendored fonts for the og-image generator (build-time only)
+scripts/fonts/
+
 # scratch data extracted while building (safe to ignore)
 resume_text.txt
 notion_raw.json
