@@ -24,14 +24,18 @@ const BONE_DIM = "#b3aa9c";
 const BONE_FAINT = "#7c756a";
 const GOLD = "#c9a14a";
 
+// Centered, "square-safe" composition: chat apps (WhatsApp) crop the center
+// square out of the 1200x630, so all key text stays inside the middle column.
+const CX = W / 2;
+
 const svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <radialGradient id="glow" cx="18%" cy="14%" r="62%">
-      <stop offset="0%" stop-color="${GOLD}" stop-opacity="0.22" />
+    <radialGradient id="glow" cx="50%" cy="8%" r="70%">
+      <stop offset="0%" stop-color="${GOLD}" stop-opacity="0.20" />
       <stop offset="55%" stop-color="${GOLD}" stop-opacity="0.05" />
       <stop offset="100%" stop-color="${GOLD}" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="glow2" cx="92%" cy="100%" r="55%">
+    <radialGradient id="glow2" cx="50%" cy="108%" r="60%">
       <stop offset="0%" stop-color="#e07a5f" stop-opacity="0.10" />
       <stop offset="100%" stop-color="#e07a5f" stop-opacity="0" />
     </radialGradient>
@@ -50,27 +54,32 @@ const svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http
         fill="none" stroke="${BONE}" stroke-opacity="0.08" stroke-width="1" />
 
   <!-- brand mark -->
-  <text x="92" y="132" font-family="Fraunces, Georgia, 'Times New Roman', serif"
-        font-size="42" font-weight="600" fill="${BONE}">Anas<tspan fill="${GOLD}">.</tspan></text>
-
-  <!-- gold accent rule -->
-  <rect x="92" y="296" width="64" height="3" rx="1.5" fill="${GOLD}" />
+  <text x="${CX}" y="150" text-anchor="middle"
+        font-family="Fraunces, Georgia, 'Times New Roman', serif"
+        font-size="38" font-weight="600" fill="${BONE}">Anas<tspan fill="${GOLD}">.</tspan></text>
 
   <!-- eyebrow -->
-  <text x="92" y="346" font-family="Inter, Arial, sans-serif" font-size="25"
-        font-weight="600" letter-spacing="4" fill="${GOLD}">AI SOFTWARE ENGINEER · KARACHI</text>
+  <text x="${CX}" y="232" text-anchor="middle" font-family="Inter, Arial, sans-serif"
+        font-size="23" font-weight="600" letter-spacing="5" fill="${GOLD}">AI SOFTWARE ENGINEER</text>
 
-  <!-- name -->
-  <text x="90" y="446" font-family="Fraunces, Georgia, 'Times New Roman', serif"
-        font-size="82" font-weight="600" fill="url(#nameFill)">Muhammad Anas Sheikh</text>
+  <!-- gold accent rule -->
+  <rect x="${CX - 28}" y="256" width="56" height="3" rx="1.5" fill="${GOLD}" />
+
+  <!-- name (two lines, fits the center square) -->
+  <text x="${CX}" y="356" text-anchor="middle"
+        font-family="Fraunces, Georgia, 'Times New Roman', serif"
+        font-size="78" font-weight="600" fill="url(#nameFill)">Muhammad</text>
+  <text x="${CX}" y="440" text-anchor="middle"
+        font-family="Fraunces, Georgia, 'Times New Roman', serif"
+        font-size="78" font-weight="600" fill="url(#nameFill)">Anas Sheikh</text>
 
   <!-- tagline -->
-  <text x="92" y="512" font-family="Inter, Arial, sans-serif" font-size="30"
-        font-weight="400" fill="${BONE_DIM}">Real-time Computer Vision · MLOps · Agentic AI</text>
+  <text x="${CX}" y="506" text-anchor="middle" font-family="Inter, Arial, sans-serif"
+        font-size="27" font-weight="400" fill="${BONE_DIM}">Computer Vision · MLOps · Agentic AI</text>
 
   <!-- footer wordmark -->
-  <text x="92" y="566" font-family="Inter, Arial, sans-serif" font-size="22"
-        font-weight="500" letter-spacing="1" fill="${BONE_FAINT}">anasshaikh4.github.io/portfolio-anasshaikh</text>
+  <text x="${CX}" y="566" text-anchor="middle" font-family="Inter, Arial, sans-serif"
+        font-size="20" font-weight="500" letter-spacing="1" fill="${BONE_FAINT}">anasshaikh4.github.io</text>
 </svg>`;
 
 // optional vendored fonts
