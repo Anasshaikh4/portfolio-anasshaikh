@@ -37,9 +37,10 @@ export default function ProjectModal({
     };
   }, [project, onClose]);
 
-  // A project with media gets a wide, two-column modal (media | details).
+  // A project with media gets a wide modal.
   const hasMedia = !!project?.media?.length;
-  // A single video is centered in the left pane; images/multiple stack top-down.
+  // A single video sits in a left pane beside the details; images (e.g.
+  // diagrams) span the full width above the details so they stay legible.
   const singleVideo =
     hasMedia &&
     project!.media!.length === 1 &&
@@ -100,7 +101,7 @@ export default function ProjectModal({
 
             <div
               className={
-                hasMedia
+                singleVideo
                   ? "grid gap-7 px-7 py-6 md:grid-cols-[1.15fr_0.85fr] md:gap-9"
                   : "space-y-6 px-7 py-6"
               }
@@ -111,7 +112,7 @@ export default function ProjectModal({
                   className={
                     singleVideo
                       ? "flex items-center md:self-stretch"
-                      : "space-y-3 md:self-start"
+                      : "space-y-3"
                   }
                 >
                   {project.media!.map((m) =>
@@ -125,13 +126,21 @@ export default function ProjectModal({
                         preload="metadata"
                       />
                     ) : (
-                      <img
+                      <a
                         key={m}
-                        src={`${import.meta.env.BASE_URL}media/${m}`}
-                        alt={`${project.title} preview`}
-                        className="w-full rounded-xl border border-[var(--color-ink-line)]"
-                        loading="lazy"
-                      />
+                        href={`${import.meta.env.BASE_URL}media/${m}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Open full size"
+                        className="block cursor-zoom-in"
+                      >
+                        <img
+                          src={`${import.meta.env.BASE_URL}media/${m}`}
+                          alt={`${project.title} preview`}
+                          className="w-full rounded-xl border border-[var(--color-ink-line)]"
+                          loading="lazy"
+                        />
+                      </a>
                     ),
                   )}
                 </div>
