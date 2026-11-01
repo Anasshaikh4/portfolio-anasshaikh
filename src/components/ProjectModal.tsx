@@ -21,13 +21,19 @@ export default function ProjectModal({
 }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    // Lenis owns page scrolling, so body overflow alone doesn't lock the page.
+    // The dialog itself opts out of Lenis via data-lenis-prevent so its own
+    // content scrolls natively.
+    const lenis = (window as unknown as { __lenis?: { stop(): void; start(): void } }).__lenis;
     if (project) {
       document.addEventListener("keydown", onKey);
       document.body.style.overflow = "hidden";
+      lenis?.stop();
     }
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      lenis?.start();
     };
   }, [project, onClose]);
 
@@ -57,6 +63,7 @@ export default function ProjectModal({
           <motion.div
             role="dialog"
             aria-modal="true"
+            data-lenis-prevent
             aria-label={project.title}
             initial={{ y: 40, opacity: 0, scale: 0.98 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
