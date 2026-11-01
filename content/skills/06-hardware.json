@@ -1,0 +1,15 @@
+{
+  "label": "Hardware (hands-on)",
+  "items": [
+    "Jetson AGX Thor 128 GB",
+    "Jetson Orin Nano 8 GB",
+    "RTX A6000 48 GB",
+    "L4 24 GB",
+    "Tesla T4 16 GB",
+    "RTX 5070 Ti 16 GB",
+    "RTX 4070 Ti SUPER 16 GB",
+    "RTX 5060 8 GB",
+    "RTX 4060 8 GB"
+  ],
+  "order": 6
+}

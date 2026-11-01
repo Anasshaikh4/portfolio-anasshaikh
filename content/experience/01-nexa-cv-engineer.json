@@ -1,0 +1,15 @@
+{
+  "company": "Lambda Theta",
+  "context": "NEXA",
+  "role": "Computer Vision Engineer",
+  "period": "Feb 2026 — Present",
+  "start": "2026-02",
+  "bullets": [
+    "Designed and built the camera-processing service at the core of NEXA, a real-time video-analytics platform: one process per camera, with a plug-in framework that now hosts 20+ detection pipelines built by me and 6 other engineers.",
+    "Built the shared GPU model-serving layer (up to 16 stateless model workers) and the alerting path, then moved alerts from Kafka to Redis Streams with no lost alerts.",
+    "On a lab server, raised cameras per server 4× (~4 → 16) by moving 12 models to NVIDIA Triton + TensorRT and decoding video on the GPU. Production rollout planned.",
+    "Set hardware sizing limits by load-testing each machine to failure: 10 cameras per cloud T4 server and 8 per NVIDIA Jetson edge device.",
+    "Built an MLflow model registry with roles, promotion and rollback, and checksum-verified model delivery; now training a junior engineer to take it into production.",
+    "Found and fixed a 31-hour silent outage, and shipped release v1.1.0 to all three production servers with zero data loss."
+  ]
+}

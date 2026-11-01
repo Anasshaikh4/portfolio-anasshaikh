@@ -1,13 +1,12 @@
 {
   "label": "LLM & Agentic",
   "items": [
+    "RAG",
     "OpenAI API",
     "Google ADK",
     "Gemini",
-    "RAG",
-    "Pydantic",
-    "Multi-Agent Systems",
-    "FastAPI"
+    "Ollama",
+    "Multi-agent systems"
   ],
-  "order": 4
+  "order": 5
 }

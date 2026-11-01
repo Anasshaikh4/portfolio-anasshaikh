@@ -17,13 +17,14 @@
     "Docker Compose"
   ],
   "achievements": [
-    "Modified YOLOv8 with a custom EfficientViT backbone - higher precision/recall at lower resource cost than RT-DETR.",
+    "Built a lightweight YOLOv8 detector with a custom EfficientViT backbone that matched RT-DETR-L on held-out test data (mAP@0.5 0.936 vs 0.939) with 8.9× fewer parameters.",
     "Built a modular pipeline to benchmark model pairs and derive Precision/Recall/F1 across architectures.",
     "Implemented multi-camera, batch-synchronized inference with per-camera capture threads and bounded frame queues.",
     "Integrated a dual-model pipeline (weapon detector + pose estimator) with warm-up inference to preload weights.",
     "Built a rule-driven alert engine using weapon/posture class sets and consecutive-frame thresholds from config.",
     "Added evidence capture: buffered WebM clip recording and alert persistence in SQLite with structured event payloads.",
-    "Exposed a camera-service API over WebSockets with CORS for a live dashboard."
+    "Exposed a camera-service API over WebSockets with CORS for a live dashboard.",
+    "Later rebuilt this design at production scale as NEXA's camera-processing service."
   ],
   "links": {
     "github": "",

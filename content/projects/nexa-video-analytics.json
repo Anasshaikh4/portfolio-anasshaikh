@@ -1,0 +1,45 @@
+{
+  "title": "NEXA — Real-time Video Analytics Platform",
+  "slug": "nexa-video-analytics",
+  "domain": "Computer Vision",
+  "date": "2026-10",
+  "featured": true,
+  "oneLiner": "Production platform that turns live CCTV into real-time AI alerts — I built its camera-processing core and GPU model-serving layer.",
+  "objective": "NEXA turns live CCTV into real-time alerts: camera feeds pass through AI models on GPU servers, and a rule engine raises alerts with video evidence and a live view. It runs for UK clients, including a 200+ camera Premier League stadium, across Google Cloud and on-site UK servers, built by a team of 10+ engineers.",
+  "stack": [
+    "Python (asyncio)",
+    "PyTorch",
+    "YOLO",
+    "ByteTrack",
+    "NVIDIA Triton",
+    "TensorRT",
+    "NVDEC",
+    "Redis Streams",
+    "MongoDB",
+    "MinIO",
+    "MLflow",
+    "LiveKit / WebRTC",
+    "FFmpeg",
+    "Docker",
+    "Google Cloud",
+    "NVIDIA Jetson"
+  ],
+  "achievements": [
+    "Designed and built the camera-processing service: one process per camera that reads the stream, picks frames, runs its AI pipelines, tracks people and raises alerts. Its plug-in framework hosts 20+ detection pipelines built by me and 6 other engineers.",
+    "Built the shared GPU model-serving layer: up to 16 stateless model workers behind one request/response format, so one loaded model serves many cameras.",
+    "Built the alerting path — one alert per incident, per-person deduplication, a clip from before each incident, back-pressure — and moved it from Kafka to Redis Streams with no lost alerts.",
+    "On a lab server, raised cameras per server 4× (~4 → 16) by moving 12 models to NVIDIA Triton + TensorRT and decoding video on the GPU. Production rollout planned.",
+    "Sized edge and cloud hardware by load-testing to failure: 8 cameras per Jetson Orin Nano (bound by its hardware video decoder, not compute) and 10 per cloud T4 server.",
+    "Made small weapons detectable at CCTV distance with person-focused tiled detection that zooms in only around people.",
+    "Found and fixed a 31-hour silent outage where camera processes leaked network connections until AI results stopped while every dashboard stayed green.",
+    "Built an MLflow model registry with promotion, rollback and checksum-verified model delivery to every server."
+  ],
+  "links": {
+    "github": "",
+    "demo": "",
+    "video": ""
+  },
+  "media": [
+    "nexa-architecture.png"
+  ]
+}

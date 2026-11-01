@@ -1,0 +1,33 @@
+{
+  "title": "RAG-as-a-Service",
+  "slug": "rag-as-a-service",
+  "domain": "NLP",
+  "date": "2026-01",
+  "featured": false,
+  "oneLiner": "Multi-user document Q&A platform with background ingestion and switchable embedding providers.",
+  "objective": "Rebuild an earlier single-script RAG tool with the architecture the pattern actually needs: a vector store, authentication, versioned schema and ingestion that never blocks a request.",
+  "stack": [
+    "FastAPI",
+    "PostgreSQL",
+    "Milvus",
+    "Redis",
+    "Celery",
+    "Ollama",
+    "OpenAI API",
+    "Alembic",
+    "React",
+    "Docker Compose"
+  ],
+  "achievements": [
+    "Built a FastAPI backend on four backing services, each with one job: PostgreSQL for users and metadata, Milvus for vector search, Redis as the queue and Celery workers for ingestion.",
+    "Moved document ingestion off the request path — uploads return immediately while a worker parses, chunks, embeds and indexes.",
+    "Put embeddings behind one interface: Ollama locally, OpenAI hosted, swappable without touching call sites.",
+    "Added JWT logins with role-ready structure, Alembic schema migrations and ingestion for PDF, TXT, DOCX and CSV."
+  ],
+  "links": {
+    "github": "",
+    "demo": "",
+    "video": ""
+  },
+  "media": []
+}

@@ -1,0 +1,11 @@
+{
+  "company": "Lambda Theta",
+  "context": "ELM, Saudi Arabia",
+  "role": "Software Engineer",
+  "period": "Oct 2024 — Jul 2025",
+  "start": "2024-10",
+  "bullets": [
+    "Built the model-serving backend for two vision products: 11 models in 8 containers behind one API gateway. The exam-centre invigilation system went live in a 10-camera exam centre.",
+    "Trained classifiers and detectors on lightweight architectures (MobileViT, YOLOv8), and benchmarked accident detection on an NVIDIA Jetson to decide what could run on the edge."
+  ]
+}

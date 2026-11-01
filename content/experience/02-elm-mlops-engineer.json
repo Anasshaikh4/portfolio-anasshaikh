@@ -1,0 +1,11 @@
+{
+  "company": "Lambda Theta",
+  "context": "ELM, Saudi Arabia",
+  "role": "MLOps Engineer",
+  "period": "Aug 2025 — Dec 2025",
+  "start": "2025-08",
+  "bullets": [
+    "Deployed and ran the MLflow experiment-tracking server and model registry for ELM's team building an Arabic large language model, which now powers the AI chat assistant in a national Hajj & Umrah app.",
+    "Made model training repeatable and traceable: one config file drives train → evaluate → register, and every model version links back to its data and settings. Demonstrated automated deployment from the registry with GitHub Actions."
+  ]
+}

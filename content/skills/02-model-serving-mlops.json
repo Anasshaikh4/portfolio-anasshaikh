@@ -1,0 +1,15 @@
+{
+  "label": "Model Serving & MLOps",
+  "items": [
+    "NVIDIA Triton",
+    "TensorRT",
+    "ONNX",
+    "CUDA",
+    "GPU video decoding (NVDEC)",
+    "MLflow",
+    "gRPC",
+    "Docker",
+    "GitHub Actions"
+  ],
+  "order": 2
+}

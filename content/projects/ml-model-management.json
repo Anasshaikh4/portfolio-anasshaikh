@@ -3,7 +3,7 @@
   "slug": "ml-model-management",
   "domain": "MLOps",
   "date": "2025-05",
-  "featured": true,
+  "featured": false,
   "oneLiner": "A customized, authenticated MLflow server with browser-direct artifact uploads and automated deployment.",
   "objective": "Customize and run an MLflow server from source with authentication and purpose-built APIs for browser-based artifact uploads and model registration - an end-to-end ML lifecycle system for training, validation, versioning, and deployment across AI projects.",
   "stack": [

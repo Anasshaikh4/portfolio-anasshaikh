@@ -1,0 +1,15 @@
+{
+  "label": "Backend & Data",
+  "items": [
+    "Python (asyncio)",
+    "FastAPI",
+    "Redis Streams",
+    "MongoDB",
+    "PostgreSQL",
+    "MinIO / S3",
+    "Kafka",
+    "Milvus",
+    "Celery"
+  ],
+  "order": 3
+}

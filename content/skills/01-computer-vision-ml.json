@@ -2,14 +2,14 @@
   "label": "Computer Vision & ML",
   "items": [
     "PyTorch",
-    "TensorFlow",
     "Ultralytics YOLO",
-    "EfficientViT",
     "RT-DETR",
-    "CNNs",
-    "Transformers",
+    "RF-DETR",
+    "EfficientViT",
+    "ByteTrack",
     "OpenCV",
-    "MediaPipe"
+    "TensorFlow",
+    "scikit-learn"
   ],
-  "order": 2
+  "order": 1
 }

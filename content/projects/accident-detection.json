@@ -4,7 +4,7 @@
   "domain": "Edge AI",
   "date": "2024-12",
   "featured": true,
-  "oneLiner": "Dashcam accident-detection PoC running real-time on an NVIDIA Jetson with cloud alerting.",
+  "oneLiner": "Dashcam accident-detection PoC on an NVIDIA Jetson Orin Nano — with an honest on-device benchmark.",
   "objective": "Simulate an intelligent dashcam streaming endpoint that detects accidents in real time for timely acknowledgment.",
   "stack": [
     "TensorFlow",
@@ -16,9 +16,10 @@
     "Threading"
   ],
   "achievements": [
-    "Built an accident-detection PoC for dashcams using a pretrained MoViNet CNN.",
-    "Deployed the model on an NVIDIA Jetson Orin Nano for real-time, on-device inference.",
-    "Integrated cloud-based alerting to raise flags the moment an accident is detected."
+    "Ran a MoViNet video-classification model fully on-device on an NVIDIA Jetson Orin Nano, capturing from a live camera.",
+    "Designed a chunked streaming loop — 10-second chunks split into overlapping 2-second subclips — so an event on a boundary still lands inside one window, with capture never blocked by inference.",
+    "Added cloud alerting through Google Cloud on a positive detection.",
+    "Measured the real cost on the device: ~90 s to process each 10 s chunk, about 9× slower than real time — the number that showed the model had to change before live deployment."
   ],
   "links": {
     "github": "",

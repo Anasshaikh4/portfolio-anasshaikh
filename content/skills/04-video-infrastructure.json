@@ -1,0 +1,15 @@
+{
+  "label": "Video & Infrastructure",
+  "items": [
+    "FFmpeg",
+    "RTSP",
+    "LiveKit / WebRTC",
+    "Google Cloud",
+    "DigitalOcean",
+    "Linux",
+    "systemd",
+    "Nomad",
+    "Git"
+  ],
+  "order": 4
+}

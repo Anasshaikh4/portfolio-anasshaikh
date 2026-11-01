@@ -1,22 +1,22 @@
 {
   "headline": "I don't just train models — *I ship them*,\nto production and to the edge.",
   "paragraphs": [
-    "I'm an AI Software Engineer with 1.5+ years building and shipping real-time AI systems — not notebooks, but systems that run in production and on the edge.",
-    "At Lambda Theta (ODC), I support enterprise AI initiatives for Elm (KSA), including work on Nuha-LLM-based solutions for production NLP and automation. My core is Computer Vision — CNNs, Transformers, YOLO, EfficientViT — but I own the whole lifecycle: data, training, evaluation, inference, and deployment via Docker, MLflow, and GitHub Actions.",
-    "My trajectory mirrors the field's: starting in real-time CV and edge deployment on NVIDIA Jetson, moving into MLOps, and most recently into Agentic AI and multi-agent orchestration. I care about measurable trade-offs — swapping architectures to win precision and recall while spending fewer resources."
+    "I'm an AI Software Engineer with 2+ years building and running real-time AI systems — not notebooks, but systems that run in production and on the edge.",
+    "Today I own the camera-processing service and the GPU model-serving layer of NEXA, a real-time video-analytics platform watching live CCTV for UK clients, including a Premier League stadium. Before that, on Lambda Theta's offshore team for ELM (Saudi Arabia), I built model-serving backends for vision products and ran the MLflow model registry for the team building NUHA, an Arabic large language model.",
+    "My path runs from real-time computer vision on NVIDIA Jetson, through model serving and MLOps, to taking video analytics from cloud GPUs down to edge devices. I care about measured trade-offs — numbers verified on the target hardware, not assumed."
   ],
   "stats": [
     {
-      "value": "1.5+",
+      "value": "2+",
       "label": "Years building AI in production"
     },
     {
-      "value": "10+",
-      "label": "Shipped projects across 5 domains"
+      "value": "20+",
+      "label": "Detection pipelines on the camera framework I built"
     },
     {
       "value": "Edge → Cloud",
-      "label": "From Jetson devices to GCP & DigitalOcean"
+      "label": "From Jetson devices to cloud GPU servers"
     }
   ]
 }

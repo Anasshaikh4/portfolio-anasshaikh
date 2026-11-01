@@ -75,7 +75,7 @@ const svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http
 
   <!-- tagline -->
   <text x="${CX}" y="506" text-anchor="middle" font-family="Inter, Arial, sans-serif"
-        font-size="27" font-weight="400" fill="${BONE_DIM}">Computer Vision · MLOps · Agentic AI</text>
+        font-size="27" font-weight="400" fill="${BONE_DIM}">Computer Vision · Model Serving · MLOps</text>
 
   <!-- footer wordmark -->
   <text x="${CX}" y="566" text-anchor="middle" font-family="Inter, Arial, sans-serif"
